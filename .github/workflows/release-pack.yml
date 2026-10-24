@@ -1,0 +1,26 @@
+name: release-pack
+on:
+  push:
+    branches: [main]
+    paths:
+      - "pack/**"
+      - ".github/workflows/release-pack.yml"
+permissions:
+  contents: write
+jobs:
+  zip-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Zip pack
+        run: |
+          cd pack
+          zip -X -r ../pack.zip .
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: pack
+          name: pack
+          files: pack.zip
+          fail_on_unmatched_files: true
+          make_latest: true
