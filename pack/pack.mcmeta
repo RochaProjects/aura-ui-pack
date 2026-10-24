@@ -1,0 +1,4 @@
+{
+  "pack": {"description": "Aura UI (MCGUI shaders)", "min_format": 88, "max_format": 97},
+  "overlays": {"entries": [{"directory": "uiengine_26_2", "min_format": 88, "max_format": 96}]}
+}
